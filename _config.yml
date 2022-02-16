@@ -4,4 +4,4 @@ relative_links:
   enabled: true
   collections: true
 include:
-  - Waifu2xGuide.md
+  - index.md
