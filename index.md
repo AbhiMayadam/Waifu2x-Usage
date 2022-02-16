@@ -3,6 +3,9 @@
 	p{
 			font-size: 20px;
 		 }
+	li{
+			font-size: 20px;
+		 }
 	</style>
 </head>
 
