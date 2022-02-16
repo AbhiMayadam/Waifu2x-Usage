@@ -1,9 +1,6 @@
 <head>
 	<style>
-	p{
-			font-size: 20px;
-		 }
-	li{
+	p, li{
 			font-size: 20px;
 		 }
 	</style>
