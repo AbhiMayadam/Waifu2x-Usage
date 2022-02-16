@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="_sass/style.scss">
+</head>
+
 # How do I get and use Waifu2x?
 
 There is 3 different versions

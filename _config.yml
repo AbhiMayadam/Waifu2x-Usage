@@ -5,7 +5,9 @@ relative_links:
   collections: true
 include:
   - index.md
+  -_sass/style.scss
+  
 title: Waifu2x Usage
-description: How to use Waifu2x properly and effectively to remove the noise from your images. 
+description: How to use Waifu2x properly and effectively to remove the noise from your images.
 
 theme: jekyll-theme-slate
