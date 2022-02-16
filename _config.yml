@@ -5,5 +5,7 @@ relative_links:
   collections: true
 include:
   - index.md
+title: Waifu2x Usage
+description: How to use Waifu2x properly
 
 theme: jekyll-theme-slate
