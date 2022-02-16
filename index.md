@@ -49,7 +49,7 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 
 8. Make sure output is set to PNG and not JPG.
 
-9. Denoising levels is based on how many artifacts you see. You can use an jpg quality checker website such as https://www.imgonline.com.ua/eng/determine-jpeg-quality.php. Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
+9. Denoising levels is based on how many artifacts you see. You can use an jpg quality checker website such as ![wtf](https://www.imgonline.com.ua/eng/determine-jpeg-quality.php). Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
 
 10. Set it to Denoise and set your denoise level based on this number. Level 0 is 93+, Level 1 is 75-90, Level 2 is 75 and below, but might as well use Level 3 at this point. Do not over denoise as an over denoised image will look worse.
 
