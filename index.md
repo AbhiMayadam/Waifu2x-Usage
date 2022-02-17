@@ -16,14 +16,14 @@ There are 3 different versions
 Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waifu2x-caffe will run only on Nvidia GPUs (and CPU, but that's slow as balls, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-ncnn vulkan that runs on Google's servers and can read files directly from your Google Drive. This only needs a web browser to run.
 
 ## How to check what GPU do you have?
-1. Right click on the taskbar and launch Task Manager and click on more details if your Task Manager looks like this.
+1. Right click on the taskbar and launch Task Manager, Click on more details if your Task Manager looks like this.
 ![TM](https://i.imgur.com/uqQgAoP.png)
 2. Go to the performance tab and scroll the left pane all the way down and you will see GPU entries.
 ![TM](https://i.imgur.com/3ejEpOM.png)
 3. Select GPU 0 or GPU 1 if your system has 2 GPUs
 ![TM](https://i.imgur.com/hrrGuSN.png)
 4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan
-4a. If you have an Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-ncnn-vulkan, if it is greater than 2 GB, use Waifu2x-caffe.
+4a. If you have a Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-ncnn-vulkan, if it is greater than 2 GB, use Waifu2x-caffe.
 
 ![TM](https://i.imgur.com/Wbdm50B.png)
 
@@ -31,15 +31,16 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 ## Using Waifu2x
 1. Unzip Waifu2x-ncnn-vulkan-gui or Waifu2x-Caffe into the folder,
 2. Click on waifu2x-ncnn-vulkan-gui.exe or waifu2x-caffe.exe depending on the version you downloaded.
-<figure>
-<img align="middle" src="https://i.imgur.com/LkZIusX.png" alt="Waifu2x NCNN Vulkan Explorer Screenshot" style="width:100%" />
-<figcaption align = "center"><b>Waifu2x NCNN-Vulkan GUI</b></figcaption>
-</figure>
 
-<figure>
-<img align="middle" src="https://i.imgur.com/DAKSskp.png" alt="Waifu2x NCNN Caffe Explorer Screenshot" style="width:90%" align="middle" />
-<figcaption align = "center"><b>Waifu2x Caffe</b></figcaption>
-</figure>
+	<figure>
+	<img align="middle" src="https://i.imgur.com/LkZIusX.png" alt="Waifu2x NCNN Vulkan Explorer Screenshot" style="width:100%" />
+	<figcaption align = "center"><b>Waifu2x NCNN-Vulkan GUI</b></figcaption>
+	</figure>
+
+	<figure>
+	<img align="middle" src="https://i.imgur.com/DAKSskp.png" alt="Waifu2x NCNN Caffe Explorer Screenshot" style="width:90%" 	align="middle" />
+	<figcaption align = "center"><b>Waifu2x Caffe</b></figcaption>
+	</figure>
 
 3. If you are using Waifu2x-NCNN-Vulkan, make sure that the GPU ID is set correctly for your desired GPU. If you are using just the iGPU, set it to 0. If you are using your dGPU, set it to 1. If you are not sure, you can check task manager and look at the GPU entries. It will tell you what GPU is GPU 0 and what is GPU 1.
 
@@ -51,30 +52,31 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 5. For Waifu2x-Caffe, click on the App Setting button and make sure it is set to CUDA. Unlike Waifu2x-ncnn-vulkan, the GPU ID doesn't need to be set to 1.
 ![w2x](https://i.imgur.com/vvJQADl.png)
 
-6. From here on, the instructions will be basically the same for either Waifu2x version. Click on Input Directory/Source for caffe and vulkan respectively, and navigate to the images you want. Caffe supports folders (but not folders within folders) while vulkan needs all the images highlighted.
+6. From here on, the instructions will be basically the same for either Waifu2x version. Click on Input Directory/Source for Caffe and Vulkan respectively, and navigate to the images you want. Caffe supports folders (but not folders within folders) while vulkan needs all the images highlighted.
 
 7. Select your output directory by clicking on either Browse/Destination (Caffe/Vulkan). The parent directory will not be made so just make a blank folder for each chapter.
 
 8. Make sure output is set to PNG and not JPG.
 
-9. Denoising levels is based on how many artifacts you see. You can use an jpg quality checker website such as <https://www.imgonline.com.ua/eng/determine-jpeg-quality.php>. Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
+9. Choosing the correct denoise level is dependent on the JPEG quality of the image. You can use an jpg quality checker website such as <https://www.imgonline.com.ua/eng/determine-jpeg-quality.php>. Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
 
-10. Set it to Denoise and set your denoise level based on this number. Level 0 is 93+, Level 1 is 75-90, Level 2 is 75 and below, but might as well use Level 3 at this point. Do not over denoise as an over denoised image will look worse.
+10. Set it to Denoise and set your denoise level based on this number. Level 0 is 93+, Level 1 is 75-90, Level 2 is 75 and below, and Level 3 is simply strong denoise and works on all images At the point where you would use Level 2, you might as well make the jump to Level 3 denoise. Do not over denoise as an over denoised image will look worse and can lead to loss of detail.
 
 11. Alternatively, you can determine what level is needed if you zoom all the way in on a border of a line. If the colors bordering the line are solid, use Level 0, if there is some artifacts (small splotches that are lighter or darker than the base color), use level 1. Use Level 3 if there is a lot of them (and I mean a lot)
 
 12. Make sure the box for TTA is not checked. It increases processing time by 8x and only yields a very small quality increase.
+
 13. Click Run and wait for it to process.
 
 
 ### Advanced Settings
-**What is block size and what is the ideal number for block size?**
+**What is block/split size and what is the ideal number for block/split size?**
 
 Block size is the size of the chunks that the Waifu2x processes at a time. Bigger Chunks = better results and faster results, but this comes at a cost. Your VRAM is the limiting factor in determining block size as that is where your GPU stores all of the working information. If the chunks are too big, your GPU literally bites off more than it can chew and you will run out of VRAM.
 
 For determining the best block size for your setup, run an image with images that you would normally denoise with various block sizes starting from 100 (increase by 100 each time) and looking at VRAM utilization. Once you get around to 40-60% of your VRAM utilization, I would stop. This gives you some headroom if you get much larger raws. (For example, I got 1440px * 12000px raws when I normally do 690px * 7000px raws. I ran out of VRAM as my block size was set to 300)
 
-A rule of thumb is a block size of 100 for each GB of VRAM you have as a low estimate. Again, it is dependent on your raws' average dimensions, how many threads you have and what model you run (9/10 it will be cunet), but it will get you close.
+A rule of thumb is a block size of 100 for each GB of VRAM you have as a low estimate. Again, it is dependent on your raws' average dimensions, how many threads you have and what model you run (9/10 it will be cunet), but it will get you close. I am not sure on how it scales for Caffe so if you have some numbers, please let me know.
 
 **What is TTA?**
 
