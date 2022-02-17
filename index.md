@@ -1,4 +1,5 @@
 <head>
+<meta name="google-site-verification" content="tCg6TzKyxTyH9TLizM406ZESaZYkVywP4ELgvWAo9Hc" />
 	<style>
 	p, li{
 			font-size: 20px;
