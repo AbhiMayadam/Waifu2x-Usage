@@ -5,6 +5,7 @@ relative_links:
   collections: true
 include:
   - index.md
+  - googlecbc2aaeb40693eee.html
 
 title: Waifu2x Usage
 description: How to use Waifu2x properly and effectively to remove the noise from your images.
