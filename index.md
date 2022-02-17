@@ -94,6 +94,7 @@ Color cast is a slight tone that shows up in low quality raws being processed by
 
 
 ## Troubleshooting
+
 **My Task Manager looks like this and has no GPU entries?**
 
 ![fuckywucky](https://i.imgur.com/BwrHd7x.png)
@@ -119,7 +120,9 @@ Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even i
 
 ## Sources
 <https://shorturl.at/iuJRY>
+
 <https://en.wikipedia.org/wiki/Single-precision_floating-point_format>
+
 <https://en.wikipedia.org/wiki/Half-precision_floating-point_format>
 
 <footer>
