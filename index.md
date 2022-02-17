@@ -44,7 +44,7 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 
 3. If you are using Waifu2x-NCNN-Vulkan, make sure that the GPU ID is set correctly for your desired GPU. If you are using just the iGPU, set it to 0. If you are using your dGPU, set it to 1. If you are not sure, you can check task manager and look at the GPU entries. It will tell you what GPU is GPU 0 and what is GPU 1.
 
-![w2x](https://i.imgur.com/ocJQbP0.jpg)
+	![w2x](https://i.imgur.com/ocJQbP0.jpg)
 
 4. Go to Preferences and enable Execute high precision processing (fp32 mode). This will increase processing time, but remove the color cast that arises from fp16 mode.
 ![w2x](https://media.discordapp.net/attachments/722854123434803286/943467728273047592/unknown.png)
