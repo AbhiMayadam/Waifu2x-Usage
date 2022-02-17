@@ -69,6 +69,7 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 
 ### Advanced Settings
 **What is block size and what is the ideal number for block size?**
+
 Block size is the size of the chunks that the Waifu2x processes at a time. Bigger Chunks = better results and faster results, but this comes at a cost. Your VRAM is the limiting factor in determining block size as that is where your GPU stores all of the working information. If the chunks are too big, your GPU literally bites off more than it can chew and you will run out of VRAM.
 
 For determining the best block size for your setup, run an image with images that you would normally denoise with various block sizes starting from 100 (increase by 100 each time) and looking at VRAM utilization. Once you get around to 40-60% of your VRAM utilization, I would stop. This gives you some headroom if you get much larger raws. (For example, I got 1440px * 12000px raws when I normally do 690px * 7000px raws. I ran out of VRAM as my block size was set to 300)
@@ -76,12 +77,15 @@ For determining the best block size for your setup, run an image with images tha
 A rule of thumb is a block size of 100 for each GB of VRAM you have as a low estimate. Again, it is dependent on your raws' average dimensions, how many threads you have and what model you run (9/10 it will be cunet), but it will get you close.
 
 **What is TTA?**
+
 TTA stands for test-time-augmentation and what it does is process the same image in 8 different orientations and averages the result of said images. You get a higher quality image, but at the cost of processing time as it takes 8 times as long to process the same image, so it is not worth it in most cases. Probably useful for art.
 
-**What is FP32**
+**What is FP32?**
+
 FP32 is shorthand for Single Precision Floating Point Format. All computers do math, and we have already established that more information is better than less information. The same is true for math. FP32 stores more digits of a number in memory than FP16, or Half Precision Floating Point format, and this leads to more accurate colors as everything is magnitudes more precise. This comes at a cost at performance as it takes twice as long to process the image, but unlike TTA, there is a very visible improvement.
 
-**What is Color Cast**
+**What is Color Cast?**
+
 Color cast is a slight tone that shows up in low quality raws being processed by Waifu2x or not enabling FP32 on Waifu2x-ncnn-vulkan (I believe Waifu2x-Caffe defaults to FP32, but don't quote me on that). it comes from the lack of precision in FP16 mode, as mentioned in the above paragraph.
 
 
@@ -111,9 +115,9 @@ What happened was that you ran out of VRAM and Waifu2x couldn't use system memor
 Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even if it is an iGPU) and make sure your GPU drivers are up to date. If you have done all you can, you will need to use Waifu2x-Colab for denoising.
 
 ## Sources
-https://github.com/nagadomi/waifu2x/issues/148#issuecomment-255754265
-https://en.wikipedia.org/wiki/Single-precision_floating-point_format
-https://en.wikipedia.org/wiki/Half-precision_floating-point_format
+<https://github.com/nagadomi/waifu2x/issues/148#issuecomment-255754265>
+<https://en.wikipedia.org/wiki/Single-precision_floating-point_format>
+<https://en.wikipedia.org/wiki/Half-precision_floating-point_format>
 
 <footer>
   <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees#3150.</p>
