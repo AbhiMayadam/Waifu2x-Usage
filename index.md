@@ -8,12 +8,12 @@
 
 # How do I get and use Waifu2x?
 
-There is 3 different versions
+There are 3 different versions
 1. [Waifu2x-ncnn-vulkan](https://github.com/f11894/waifu2x-ncnn-vulkan-GUI/releases)
 2. [Waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe/releases)
 3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq) (There is a guide in the link itself, but I will make a more detailed guide eventually)
 
-Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waifu2x-caffe will run only on Nvidia GPUs (and CPU, but that's slow as balls, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-ncnn vulkan that runs on Google's servers and is based around your Google Drive, and this only needs access to a web browser.
+Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waifu2x-caffe will run only on Nvidia GPUs (and CPU, but that's slow as balls, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-ncnn vulkan that runs on Google's servers and can read files directly from your Google Drive. This only needs a web browser to run.
 
 ## How to check what GPU do you have?
 1. Right click on the taskbar and launch Task Manager and click on more details if your Task Manager looks like this.
@@ -63,11 +63,30 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 
 11. Alternatively, you can determine what level is needed if you zoom all the way in on a border of a line. If the colors bordering the line are solid, use Level 0, if there is some artifacts (small splotches that are lighter or darker than the base color), use level 1. Use Level 3 if there is a lot of them (and I mean a lot)
 
-12. Make sure the box for TTA is not checked. It will process each image 8 times in different orientations and average the differences to get the best result, but obviously increases processing time by 8x. TTA doesn't make enough of a difference to warrant it for Webtoons.
-
+12. Make sure the box for TTA is not checked. It increases processing time by 8x and only yields a very small quality increase.
 13. Click Run and wait for it to process.
 
-## FAQ
+
+### Advanced Settings
+**What is block size and what is the ideal number for block size?**
+Block size is the size of the chunks that the Waifu2x processes at a time. Bigger Chunks = better results and faster results, but this comes at a cost. Your VRAM is the limiting factor in determining block size as that is where your GPU stores all of the working information. If the chunks are too big, your GPU literally bites off more than it can chew and you will run out of VRAM.
+
+For determining the best block size for your setup, run an image with images that you would normally denoise with various block sizes starting from 100 (increase by 100 each time) and looking at VRAM utilization. Once you get around to 40-60% of your VRAM utilization, I would stop. This gives you some headroom if you get much larger raws. (For example, I got 1440px * 12000px raws when I normally do 690px * 7000px raws. I ran out of VRAM as my block size was set to 300)
+
+A rule of thumb is a block size of 100 for each GB of VRAM you have as a low estimate. Again, it is dependent on your raws' average dimensions, how many threads you have and what model you run (9/10 it will be cunet), but it will get you close.
+
+**What is TTA?**
+TTA stands for test-time-augmentation and what it does is process the same image in 8 different orientations and averages the result of said images. You get a higher quality image, but at the cost of processing time as it takes 8 times as long to process the same image, so it is not worth it in most cases. Probably useful for art.
+
+**What is FP32**
+FP32 is shorthand for Single Precision Floating Point Format. All computers do math, and we have already established that more information is better than less information. The same is true for math. FP32 stores more digits of a number in memory than FP16, or Half Precision Floating Point format, and this leads to more accurate colors as everything is magnitudes more precise. This comes at a cost at performance as it takes twice as long to process the image, but unlike TTA, there is a very visible improvement.
+
+**What is Color Cast**
+Color cast is a slight tone that shows up in low quality raws being processed by Waifu2x or not enabling FP32 on Waifu2x-ncnn-vulkan (I believe Waifu2x-Caffe defaults to FP32, but don't quote me on that). it comes from the lack of precision in FP16 mode, as mentioned in the above paragraph.
+
+
+
+## Troubleshooting
 **My Task Manager looks like this and has no GPU entries?**
 
 ![fuckywucky](https://i.imgur.com/BwrHd7x.png)
@@ -83,11 +102,19 @@ For some reason, Windows does not report GPU Compute at all. Go to your GPU entr
 
 ![fuckywucky](https://i.imgur.com/qTWsZfJ.png)
 
-What happened was that you ran out of VRAM and Waifu2x couldn't use system memory. This occurs when you have slow video memory relative to system memory. My laptop has GDDR3 video memory and DDR4 system memory (Thanks AMD) and due to DDR4 being much faster than GDDR3, it will throw this issue. In this case, you need to reduce the block size to something reasonable. Block size isn't a truly set and forget setting. It depends on the physical size of your raws, how many threads you are procesisng at once (2 is the default), and how much VRAM you have. Try to find a setting that uses 1/3 to 1/2 of your VRAM. 200 to 500 is an ideal block size. If you have a lot of VRAM, you can increase it higher.
-If you are working with Raws that are like 20000 pixels tall, please slice it into a sane size like 10000 pixel tall. Your computer will thank you, and your CL, TS, RD, and QC's computers will thank you.
+What happened was that you ran out of VRAM and Waifu2x couldn't use system memory. This occurs when you have slow video memory relative to system memory. My laptop has GDDR3 video memory and DDR4 system memory (Thanks AMD) and due to DDR4 being much faster than GDDR3, it will throw this error. In this case, you need to reduce the block size to something reasonable.
 
 **I got an error like this and Waifu2x-ncnn-vulkan didn't even launch?**
 
 ![fuckywucky](https://i.imgur.com/RrjPBjK.png)
 
 Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even if it is an iGPU) and make sure your GPU drivers are up to date. If you have done all you can, you will need to use Waifu2x-Colab for denoising.
+
+## Sources
+https://github.com/nagadomi/waifu2x/issues/148#issuecomment-255754265
+https://en.wikipedia.org/wiki/Single-precision_floating-point_format
+https://en.wikipedia.org/wiki/Half-precision_floating-point_format
+
+<footer>
+  <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees#3150.</p>
+</footer>
