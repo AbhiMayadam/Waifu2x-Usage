@@ -118,7 +118,7 @@ What happened was that you ran out of VRAM and Waifu2x couldn't use system memor
 Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even if it is an iGPU) and make sure your GPU drivers are up to date. If you have done all you can, you will need to use Waifu2x-Colab for denoising.
 
 ## Sources
-<shorturl.at/iuJRY>
+<https://shorturl.at/iuJRY>
 <https://en.wikipedia.org/wiki/Single-precision_floating-point_format>
 <https://en.wikipedia.org/wiki/Half-precision_floating-point_format>
 
