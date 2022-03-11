@@ -1,5 +1,4 @@
 <head>
-<meta name="google-site-verification" content="tCg6TzKyxTyH9TLizM406ZESaZYkVywP4ELgvWAo9Hc" />
 	<style>
 	p, li{
 			font-size: 20px;
@@ -9,10 +8,10 @@
 
 # How do I get and use Waifu2x?
 
-There are 3 different versions
+There are 2 different versions of Waifu2x
 1. [Waifu2x-ncnn-vulkan](https://github.com/f11894/waifu2x-ncnn-vulkan-GUI/releases)
 2. [Waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe/releases)
-3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq) (There is a guide in the link itself, but I will make a more detailed guide eventually)
+3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq)
 
 Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waifu2x-caffe will run only on Nvidia GPUs (and CPU, but that's slow as balls, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-ncnn vulkan that runs on Google's servers and can read files directly from your Google Drive. This only needs a web browser to run.
 
@@ -21,7 +20,7 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 ![TM](https://i.imgur.com/uqQgAoP.png)
 2. Go to the performance tab and scroll the left pane all the way down and you will see GPU entries.
 ![TM](https://i.imgur.com/3ejEpOM.png)
-3. Select GPU 0 or GPU 1 if your system has 2 GPUs
+3. Select GPU 0 or GPU 1 if your system has 2 GPUs to get the full names of both.
 ![TM](https://i.imgur.com/hrrGuSN.png)
 4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan
 4a. If you have a Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-ncnn-vulkan, if it is greater than 2 GB, use Waifu2x-caffe.
@@ -43,31 +42,27 @@ Waifu2x-ncnn-vulkan will run on basically any hardware from 2014 and later, waif
 	<figcaption align = "center"><b>Waifu2x Caffe</b></figcaption>
 	</figure>
 
-3. If you are using Waifu2x-NCNN-Vulkan, make sure that the GPU ID is set correctly for your desired GPU. If you are using just the iGPU, set it to 0. If you are using your dGPU, set it to 1. If you are not sure, you can check task manager and look at the GPU entries. It will tell you what GPU is GPU 0 and what is GPU 1.
-
-	![w2x](https://i.imgur.com/ocJQbP0.jpg)
-
-4. Go to Preferences and enable Execute high precision processing (fp32 mode). This will increase processing time, but remove the color cast that arises from fp16 mode.
+3. Go to Preferences and enable Execute high precision processing (fp32 mode). This will increase processing time, but will decrease artifacts that arise from
 ![w2x](https://media.discordapp.net/attachments/722854123434803286/943467728273047592/unknown.png)
 
-5. For Waifu2x-Caffe, click on the App Setting button and make sure it is set to CUDA. Unlike Waifu2x-ncnn-vulkan, the GPU ID doesn't need to be set to 1.
+4. For Waifu2x-Caffe, click on the App Setting button and make sure it is set to CUDA.
 ![w2x](https://i.imgur.com/vvJQADl.png)
 
-6. From here on, the instructions will be basically the same for either Waifu2x version. Click on Input Directory/Source for Caffe and Vulkan respectively, and navigate to the images you want. Caffe supports folders (but not folders within folders) while vulkan needs all the images highlighted.
+5. From here on, the instructions will be basically the same for either Waifu2x version. Click on Input Directory/Source for Caffe and Vulkan respectively, and navigate to the images you want. Caffe supports folders (but not folders within folders) and Vulkan will support folders if you drag it into the top window.
 
-7. Select your output directory by clicking on either Browse/Destination (Caffe/Vulkan). The parent directory will not be made so just make a blank folder for each chapter.
+6. You can keep the output directory as blank to make folders for each individual chapter if you are running multiple folders at once. It will make a folder in the same directory as the original raws. If you make a custom output directory, it will not keep the parent folder.
 
-8. Make sure output is set to PNG and not JPG.
+7. Make sure output is set to PNG and not JPG.
 
-9. Choosing the correct denoise level is dependent on the JPEG quality of the image. You can use an jpg quality checker website such as <https://www.imgonline.com.ua/eng/determine-jpeg-quality.php>. Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
+8. Choosing the correct denoise level is dependent on the JPEG quality of the image. You can use an jpg quality checker website such as <https://www.imgonline.com.ua/eng/determine-jpeg-quality.php>. Upload an unstitched raw image (must be jpg originally, do not convert) and get the value.
 
-10. Set it to Denoise and set your denoise level based on this number. Level 0 is 93+, Level 1 is 75-90, Level 2 is 75 and below, and Level 3 is simply strong denoise and works on all images At the point where you would use Level 2, you might as well make the jump to Level 3 denoise. Do not over denoise as an over denoised image will look worse and can lead to loss of detail.
+9. Set it to Denoise and set your denoise level based on this number. Level 0 is 93+, Level 1 is 75-90, Level 2 is 75 and below, and Level 3 is simply strong denoise and works on all images At the point where you would use Level 2, you might as well make the jump to Level 3 denoise. Do not over denoise as an over denoised image will look worse and can lead to loss of detail.
 
-11. Alternatively, you can determine what level is needed if you zoom all the way in on a border of a line. If the colors bordering the line are solid, use Level 0, if there is some artifacts (small splotches that are lighter or darker than the base color), use level 1. Use Level 3 if there is a lot of them (and I mean a lot)
+10. Alternatively, you can determine what level is needed if you zoom all the way in on a border of a line. If the colors bordering the line are solid, use Level 0, if there is some artifacts (small splotches that are lighter or darker than the base color), use level 1. Use Level 3 if there is a lot of them (and I mean a lot)
 
-12. Make sure the box for TTA is not checked. It increases processing time by 8x and only yields a very small quality increase.
+11. Make sure the box for TTA is not checked. It increases processing time by 8x and only yields a very small quality increase.
 
-13. Click Run and wait for it to process.
+12. Click Run and wait for it to process.
 
 
 ### Advanced Settings
