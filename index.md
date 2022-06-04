@@ -120,6 +120,11 @@ Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even i
 
 <https://en.wikipedia.org/wiki/Half-precision_floating-point_format>
 
+<https://docs.google.com/document/d/1L3mt9zZAs8BVpK6BtlVca-gmsbaA02-e0yviBqz3O2c/edit>
+
+## Thanks
+Thank you tangerine01 for looking over my site and giving a lot of pointers and corrections. 
+
 <footer>
   <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees#3150.</p>
 </footer>
