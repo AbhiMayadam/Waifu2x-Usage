@@ -9,7 +9,7 @@
 # How do I get and use Waifu2x?
 
 There are 2 different versions of Waifu2x
-1. [Waifu2x-ncnn-vulkan](https://github.com/f11894/waifu2x-ncnn-vulkan-GUI/releases)
+1. [Waifu2x-ncnn-vulkan](https://github.com/AbhiMayadam/Waifu2x-Usage/blob/main/waifu2x-ncnn-vulkan-GUI_2.1.0.1.zip) [Note: f11894 took down their repository so this is the latest copy I have. I will update this link if something changes]
 2. [Waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe/releases)
 3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq)
 
@@ -123,7 +123,7 @@ Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even i
 <https://docs.google.com/document/d/1L3mt9zZAs8BVpK6BtlVca-gmsbaA02-e0yviBqz3O2c/edit>
 
 ## Thanks
-Thank you tangerine01 for looking over my site and giving a lot of pointers and corrections. 
+Thank you tangerine01 for looking over my site and giving a lot of pointers and corrections.
 
 <footer>
   <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees#3150.</p>
