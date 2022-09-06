@@ -105,7 +105,7 @@ For some reason, Windows does not report GPU Compute at all. Go to your GPU entr
 
 ![fuckywucky](https://i.imgur.com/qTWsZfJ.png)
 
-What happened was that you ran out of VRAM and Waifu2x couldn't use system memory. This occurs when you have slow video memory relative to system memory. My laptop has GDDR3 video memory and DDR4 system memory (Thanks AMD) and due to DDR4 being much faster than GDDR3, it will throw this error. In this case, you need to reduce the block size to something reasonable.
+What happened was that you ran out of VRAM. Keep lowering and trying it again until it runs properly. A good rule of thumb is 100 * VRAM in GB. 800 is the max you should do.
 
 **I got an error like this and Waifu2x-ncnn-vulkan didn't even launch?**
 
