@@ -22,7 +22,7 @@ Waifu2x-Ncnn-Vulkan will run on basically any hardware from 2014 and later, Waif
 ![TM](https://i.imgur.com/3ejEpOM.png)
 3. Select GPU 0 or GPU 1 if your system has 2 GPUs to get the full names of both.
 ![TM](https://i.imgur.com/hrrGuSN.png)
-4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan. Older intel iGPUs don't support Vulkan. If the model code is 4 digits, such as HD Graphics 5500, it will not support Vulkan on Windows. 3 Digit model codes such as HD 520 and later will support Vulkan. Xe graphics supports Vulkan.  
+4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan. Older intel iGPUs don't support Vulkan. If the model code is 4 digits, such as HD Graphics 5500, it will not support Vulkan on Windows. 3 Digit model codes such as HD 620 and later will support Vulkan. Xe graphics supports Vulkan.  Intel Skylake iGPUs such as HD 520 technically support Vulkan, but do not in practice.
 4a. If you have a Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-Ncnn-Vulkan, if it is greater than 2 GB, use Waifu2x-caffe.
 
 ![TM](https://i.imgur.com/Wbdm50B.png)
