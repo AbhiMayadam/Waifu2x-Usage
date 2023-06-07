@@ -13,7 +13,7 @@ There are 2 different versions of Waifu2x
 2. [Waifu2x-Caffe](https://github.com/lltcggie/waifu2x-caffe/releases)
 3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq)
 
-Waifu2x-Ncnn-Vulkan will run on basically any hardware from 2014 and later, Waifu2x-Caffe will run only on Nvidia GPUs (and CPU, but that's slow as balls, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-Ncnn Vulkan that runs on Google's servers and can read files directly from your Google Drive. This only needs a web browser to run.
+Waifu2x-Ncnn-Vulkan will run on basically any hardware from 2014 and later, Waifu2x-Caffe will run only on Nvidia GPUs (and CPU, but that's slow rather slow, so don't even think about it) and Waifu2x-Colab is an implementation of Waifu2x-Ncnn Vulkan that runs on Google's servers and can read files directly from your Google Drive. This only needs a web browser to run.
 
 ## How to check what GPU do you have?
 1. Right click on the taskbar and launch Task Manager, Click on more details if your Task Manager looks like this.
