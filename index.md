@@ -9,7 +9,7 @@
 # How do I get and use Waifu2x?
 
 There are 2 different versions of Waifu2x
-1. [Waifu2x-Ncnn-Vulkan](https://github.com/AbhiMayadam/Waifu2x-Usage/blob/main/waifu2x-ncnn-vulkan-GUI_2.1.0.1.zip) [Note: f11894 took down their repository so this is the latest copy I have. I will update this link if something changes]
+1. [Waifu2x-NCNN-Vulkan](https://github.com/AbhiMayadam/Waifu2x-Usage/blob/main/waifu2x-ncnn-vulkan-GUI_2.1.0.1.zip) [Note: f11894 took down their repository so this is the latest copy I have. I will update this link if something changes]
 2. [Waifu2x-Caffe](https://github.com/lltcggie/waifu2x-caffe/releases)
 3. [Waifu2x-Colab](https://colab.research.google.com/drive/1RjyCk30cc24ez1-a1Qa3CP3g_yk9AJwq)
 
@@ -22,8 +22,9 @@ Waifu2x-Ncnn-Vulkan will run on basically any hardware from 2014 and later, Waif
 ![TM](https://i.imgur.com/3ejEpOM.png)
 3. Select GPU 0 or GPU 1 if your system has 2 GPUs to get the full names of both.
 ![TM](https://i.imgur.com/hrrGuSN.png)
-4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan. Older intel iGPUs don't support Vulkan. If the model code is 4 digits, such as HD Graphics 5500, it will not support Vulkan on Windows. 3 Digit model codes such as HD 620 and later will support Vulkan. Xe graphics supports Vulkan.  Intel Skylake iGPUs such as HD 520 technically support Vulkan, but do not in practice.
-4a. If you have a Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-Ncnn-Vulkan, if it is greater than 2 GB, use Waifu2x-caffe.
+4. If the GPU brand is AMD or Intel, you need to use Waifu2x-ncnn-vulkan. Older intel iGPUs don't support Vulkan. If the model code is 4 digits, such as HD Graphics 5500, it will not support Vulkan on Windows. 3 Digit model codes such as HD 620 and later will support Vulkan. Xe graphics supports Vulkan.  Intel Skylake iGPUs such as HD 520 technically support Vulkan, but only on Linux, not on Windows.
+4a. If you have a Nvidia GPU, look at the Dedicated GPU Memory Entry. If it says 2 GB or less like here, use Waifu2x-Ncnn-Vulkan, if it is greater than 2 GB, use Waifu2x-caffe. Older Nvidia GPUs (GTX 900 series and older) do not support FP16 compute at all, and will error out
+if FP32 compute is not enabled in Waifu2x-NCNN-Vulkan settings.
 
 ![TM](https://i.imgur.com/Wbdm50B.png)
 
@@ -114,7 +115,6 @@ What happened was that you ran out of VRAM. Keep lowering and trying it again un
 Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even if it is an iGPU) and make sure your GPU drivers are up to date. If you have done all you can, you will need to use Waifu2x-Colab for denoising.
 
 ## Sources
-<https://shorturl.at/iuJRY>
 
 <https://en.wikipedia.org/wiki/Single-precision_floating-point_format>
 
@@ -126,5 +126,5 @@ Your GPU doesn't support Vulkan. If you have another GPU, switch to that (even i
 Thank you tangerine01 for looking over my site and giving a lot of pointers and corrections.
 
 <footer>
-  <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees#3150.</p>
+  <p> If you have any questions, comments, recommendations, etc., please make a post in the Discussion tab on the Github repository or you can message me on Discord at notthebees.xyz.</p>
 </footer>
